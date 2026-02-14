@@ -19,8 +19,6 @@ return function(services)
     local btn4MF = mf.buttons[4]
     local animateToggleMF = mf.animateToggle
     
-    -- TOGGLE FUNCTIONALITY
-    
     toggle1MF.clickArea.MouseButton1Click:Connect(function()
         animateToggleMF(toggle1MF, not toggle1MF.enabled)
         print(toggle1MF.enabled and "Auto Grab Enabled ✅" or "Auto Grab Disabled ❌")
@@ -53,8 +51,6 @@ return function(services)
             print("Disable Animation Disabled ❌")
         end
     end)
-    
-    -- BUTTON FUNCTIONALITY
     
     btn1MF.MouseButton1Click:Connect(function()
         local function ApplyAntiRagdoll()
@@ -100,17 +96,15 @@ return function(services)
         TeleportService:Teleport(game.PlaceId, player)
     end)
     
-    -- UI CONTROLS
-    
     local minimizedMF = false
     minimizeBtn.MouseButton1Click:Connect(function()
         minimizedMF = not minimizedMF
         if minimizedMF then
-            TweenService:Create(mainFeaturesFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back), {Size = UDim2.new(0, 400, 0, 50)}):Play()
+            TweenService:Create(mainFeaturesFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back), {Size = UDim2.new(0, 340, 0, 50)}):Play()
             contentContainer.Visible = false
             minimizeBtn.Text = "+"
         else
-            TweenService:Create(mainFeaturesFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back), {Size = UDim2.new(0, 400, 0, 320)}):Play()
+            TweenService:Create(mainFeaturesFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back), {Size = UDim2.new(0, 340, 0, 280)}):Play()
             task.wait(0.15)
             contentContainer.Visible = true
             minimizeBtn.Text = "−"
@@ -141,15 +135,31 @@ return function(services)
         end
     end)
     
-    local uiVisibleMF = true
-    UserInputService.InputBegan:Connect(function(input, gameProcessed)
-        if not gameProcessed and input.KeyCode == Enum.KeyCode.RightShift then
-            uiVisibleMF = not uiVisibleMF
-            mf.gui.Enabled = uiVisibleMF
-            print("Main Features UI:", uiVisibleMF and "Shown" or "Hidden")
-        end
+    -- Mobile Toggle Button
+    local toggleBtnGui = Instance.new("ScreenGui")
+    toggleBtnGui.Name = "ChlipHubToggle"
+    toggleBtnGui.Parent = player.PlayerGui
+    
+    local toggleBtn = Instance.new("TextButton")
+    toggleBtn.Size = UDim2.new(0, 60, 0, 40)
+    toggleBtn.Position = UDim2.new(1, -70, 0, 10)
+    toggleBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    toggleBtn.BorderColor3 = Color3.fromRGB(255, 255, 255)
+    toggleBtn.BorderSizePixel = 2
+    toggleBtn.Text = "CH"
+    toggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    toggleBtn.TextSize = 20
+    toggleBtn.Font = Enum.Font.GothamBold
+    toggleBtn.Parent = toggleBtnGui
+    
+    local toggleCorner = Instance.new("UICorner")
+    toggleCorner.CornerRadius = UDim.new(0, 8)
+    toggleCorner.Parent = toggleBtn
+    
+    toggleBtn.MouseButton1Click:Connect(function()
+        mf.gui.Enabled = not mf.gui.Enabled
     end)
     
-    print("Chlip Hub V1 Fully Loaded ✅ - Press Right Shift to toggle Main Features")
+    print("Chlip Hub V1 Fully Loaded ✅ - Press 'CH' button to toggle Main Features")
     return services
 end
