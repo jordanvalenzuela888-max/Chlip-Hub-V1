@@ -1,6 +1,5 @@
 -- CHLIP HUB V1 - CHUNK 5: Left Scroll Toggles 1-5
 return function(services)
-    local TweenService = services.TweenService
     local scrollFrame = services.LeftScrollUI.scrollFrame
     local listLayout = services.LeftScrollUI.listLayout
     local player = services.LeftScrollUI.player
@@ -25,24 +24,24 @@ return function(services)
         label.BackgroundTransparency = 1
         label.Text = name
         label.TextColor3 = Color3.fromRGB(255, 255, 255)
-        label.TextSize = 14
+        label.TextSize = 12
         label.Font = Enum.Font.GothamBold
         label.TextXAlignment = Enum.TextXAlignment.Left
         label.Parent = toggleFrame
         
         local toggleBtn = Instance.new("TextButton")
         toggleBtn.Name = "ToggleBtn"
-        toggleBtn.Size = UDim2.new(0, 50, 0, 24)
-        toggleBtn.Position = UDim2.new(1, -60, 0.5, -12)
+        toggleBtn.Size = UDim2.new(0, 40, 0, 20)
+        toggleBtn.Position = UDim2.new(1, -50, 0.5, -10)
         toggleBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
         toggleBtn.Text = "OFF"
         toggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-        toggleBtn.TextSize = 12
+        toggleBtn.TextSize = 10
         toggleBtn.Font = Enum.Font.GothamBold
         toggleBtn.Parent = toggleFrame
         
         local toggleCorner = Instance.new("UICorner")
-        toggleCorner.CornerRadius = UDim.new(0, 12)
+        toggleCorner.CornerRadius = UDim.new(0, 10)
         toggleCorner.Parent = toggleBtn
         
         local enabled = false
