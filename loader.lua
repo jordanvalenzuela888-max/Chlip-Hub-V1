@@ -1,17 +1,16 @@
--- CHLIP HUB V1 - MAIN LOADER
--- Replace these URLs with your GitHub raw URLs
+-- CHLIP HUB V1 - MAIN LOADER (Mobile Optimized)
 local baseURL = "https://raw.githubusercontent.com/jordanvalenzuela888-max/Chlip-Hub-V1/refs/heads/main/"
 
 local chunks = {
-    "chunk1.lua",  -- Services & Unlock Functions
-    "chunk2.lua",  -- Lockpick UI
-    "chunk3.lua",  -- Header UI
-    "chunk4.lua",  -- Left Scroll Framework
-    "chunk5.lua",  -- Left Scroll Toggles 1-5
-    "chunk6.lua",  -- Left Scroll Toggles 6-9 + Draggable
-    "chunk7.lua",  -- Main Features Framework
-    "chunk8.lua",  -- Main Features Elements
-    "chunk9.lua",  -- Main Features Functionality
+    "chunk1.lua",
+    "chunk2.lua", 
+    "chunk3.lua",
+    "chunk4.lua",
+    "chunk5.lua",
+    "chunk6.lua",
+    "chunk7.lua",
+    "chunk8.lua",
+    "chunk9.lua",
 }
 
 local services = nil
