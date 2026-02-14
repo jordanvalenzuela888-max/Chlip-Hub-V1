@@ -1,6 +1,5 @@
--- CHLIP HUB V1 - CHUNK 4: Left Scroll UI Framework
+-- CHLIP HUB V1 - CHUNK 4: Left Scroll UI Framework (Mobile)
 return function(services)
-    local TweenService = services.TweenService
     local player = services.player
     
     local screenGui = Instance.new("ScreenGui")
@@ -11,8 +10,8 @@ return function(services)
     
     local mainFrame2 = Instance.new("Frame")
     mainFrame2.Name = "MainContainer"
-    mainFrame2.Size = UDim2.new(0, 200, 0, 140)
-    mainFrame2.Position = UDim2.new(0, 25, 0, 28)
+    mainFrame2.Size = UDim2.new(0, 160, 0, 200)
+    mainFrame2.Position = UDim2.new(0, 10, 0, 120)
     mainFrame2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     mainFrame2.BorderColor3 = Color3.fromRGB(255, 255, 255)
     mainFrame2.BorderSizePixel = 2
@@ -55,7 +54,6 @@ return function(services)
     headerCorner.CornerRadius = UDim.new(0, 4)
     headerCorner.Parent = headerLabel
     
-    -- Store references for next chunk
     services.LeftScrollUI = {
         screenGui = screenGui,
         mainFrame = mainFrame2,
