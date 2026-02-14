@@ -1,4 +1,4 @@
--- CHLIP HUB V1 - CHUNK 7: Main Features UI Framework
+-- CHLIP HUB V1 - CHUNK 7: Main Features UI Framework (Mobile)
 return function(services)
     local TweenService = services.TweenService
     local UserInputService = services.UserInputService
@@ -18,18 +18,14 @@ return function(services)
     
     local mainFeaturesFrame = Instance.new("Frame")
     mainFeaturesFrame.Name = "MainFrame"
-    mainFeaturesFrame.Size = UDim2.new(0, 400, 0, 320)
-    mainFeaturesFrame.Position = UDim2.new(1, -420, 0, 20)
+    mainFeaturesFrame.Size = UDim2.new(0, 340, 0, 280)
+    mainFeaturesFrame.Position = UDim2.new(0.5, -170, 0.5, -140)
     mainFeaturesFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    mainFeaturesFrame.BorderSizePixel = 0
+    mainFeaturesFrame.BorderSizePixel = 2
+    mainFeaturesFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
     mainFeaturesFrame.Active = true
     mainFeaturesFrame.Visible = true
     mainFeaturesFrame.Parent = mainFeaturesGui
-    
-    local mainFeaturesStroke = Instance.new("UIStroke")
-    mainFeaturesStroke.Color = Color3.fromRGB(255, 255, 255)
-    mainFeaturesStroke.Thickness = 2
-    mainFeaturesStroke.Parent = mainFeaturesFrame
     
     local mainFeaturesCorner = Instance.new("UICorner")
     mainFeaturesCorner.CornerRadius = UDim.new(0, 12)
@@ -130,7 +126,6 @@ return function(services)
     rightCornerMF.CornerRadius = UDim.new(0, 8)
     rightCornerMF.Parent = rightColumnMF
     
-    -- Store references
     services.MainFeaturesUI = {
         gui = mainFeaturesGui,
         frame = mainFeaturesFrame,
