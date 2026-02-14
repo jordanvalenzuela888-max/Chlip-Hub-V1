@@ -1,4 +1,4 @@
--- CHLIP HUB V1 - CHUNK 2: Lockpick UI
+-- CHLIP HUB V1 - CHUNK 2: Lockpick UI (Mobile)
 return function(services)
     local TweenService = services.TweenService
     local playerGui = services.playerGui
@@ -17,9 +17,10 @@ return function(services)
     local mainFrame = Instance.new("Frame")
     mainFrame.Name = "MainFrame"
     mainFrame.Size = UDim2.new(0, 200, 0, 50)
-    mainFrame.Position = UDim2.new(0.5, -100, 1, -175)
+    mainFrame.Position = UDim2.new(0.5, -100, 0, 10)
     mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    mainFrame.BorderSizePixel = 0
+    mainFrame.BorderSizePixel = 2
+    mainFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
     mainFrame.Parent = lockpickGui
     
     local mainCorner = Instance.new("UICorner")
