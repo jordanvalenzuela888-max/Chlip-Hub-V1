@@ -1,6 +1,5 @@
 -- CHLIP HUB V1 - CHUNK 6: Left Scroll Toggles 6-9 + Draggable
 return function(services)
-    local TweenService = services.TweenService
     local UserInputService = services.UserInputService
     local scrollFrame = services.LeftScrollUI.scrollFrame
     local listLayout = services.LeftScrollUI.listLayout
@@ -27,24 +26,24 @@ return function(services)
         label.BackgroundTransparency = 1
         label.Text = name
         label.TextColor3 = Color3.fromRGB(255, 255, 255)
-        label.TextSize = 14
+        label.TextSize = 12
         label.Font = Enum.Font.GothamBold
         label.TextXAlignment = Enum.TextXAlignment.Left
         label.Parent = toggleFrame
         
         local toggleBtn = Instance.new("TextButton")
         toggleBtn.Name = "ToggleBtn"
-        toggleBtn.Size = UDim2.new(0, 50, 0, 24)
-        toggleBtn.Position = UDim2.new(1, -60, 0.5, -12)
+        toggleBtn.Size = UDim2.new(0, 40, 0, 20)
+        toggleBtn.Position = UDim2.new(1, -50, 0.5, -10)
         toggleBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
         toggleBtn.Text = "OFF"
         toggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-        toggleBtn.TextSize = 12
+        toggleBtn.TextSize = 10
         toggleBtn.Font = Enum.Font.GothamBold
         toggleBtn.Parent = toggleFrame
         
         local toggleCorner = Instance.new("UICorner")
-        toggleCorner.CornerRadius = UDim.new(0, 12)
+        toggleCorner.CornerRadius = UDim.new(0, 10)
         toggleCorner.Parent = toggleBtn
         
         local enabled = false
@@ -304,19 +303,26 @@ return function(services)
     local dragging = false
     local dragInput, dragStart, startPos
     mainFrame2.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
             dragging = true
             dragStart = input.Position
             startPos = mainFrame2.Position
         end
     end)
     mainFrame2.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then dragInput = input end
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
     end)
     UserInputService.InputChanged:Connect(function(input)
         if input == dragInput and dragging then
             local delta = input.Position - dragStart
             mainFrame2.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+    end)
+    UserInputService.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = false
         end
     end)
     
