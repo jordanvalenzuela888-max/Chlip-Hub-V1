@@ -1,6 +1,6 @@
 -- CHLIP HUB V1 - MAIN LOADER
 -- Replace these URLs with your GitHub raw URLs
-local baseURL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/"
+local baseURL = "https://raw.githubusercontent.com/jordanvalenzuela888-max/Chlip-Hub-V1/refs/heads/main/"
 
 local chunks = {
     "chunk1.lua",  -- Services & Unlock Functions
