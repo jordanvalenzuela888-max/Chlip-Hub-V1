@@ -69,7 +69,6 @@ function smartUnlock(floorNumber)
     print("Unlocked floor:",floorNumber)
 end
 
--- Return services for next chunks
 return {
     Players = Players,
     player = player,
